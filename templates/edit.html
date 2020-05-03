@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+<html>
+    <head>
+        <title>Index page</title>
+    </head>
+    <body>
+    <h3>Render  HTML page</h3>
+    {% block content %}
+    <h2>Update post</h2>
+        <div>
+            <form action="/posts/{{ post.id }}" method="POST">
+                Title: <input type="text" name='title' value='{{ post.title }}'>
+            Post: <textarea name='message' >{{ post.message }}</textarea>
+            <input type="submit" name="register" value="Send"/>
+            </form>
+        </div>
+        {% endblock %}
+</body>
+</html>

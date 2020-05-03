@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+<html>
+    <head>
+        <title>Index page</title>
+    </head>
+    <body>
+    <h3>Render  HTML page</h3>
+    {% block content %}
+    <h2>Form post</h2>
+        <div>
+            <form action="/posts" method="POST">
+            Title: <input type="text" name='title'>
+            Post: <textarea name='message'></textarea>
+            <input type="submit" name="register" value="Send"/>
+            </form>
+        </div>
+    <h2>All posts</h2>
+    {% for post in posts %}
+    <span class='title'>{{ post.title }}</span><br>
+    <p class='message'>{{ post.message }} !</p>
+        <a href="/posts/{{ post.id }}">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/posts/delete/{{ post.id }}">Delete</a>
+    </div><hr>
+    {% endfor %}
+        {% endblock %}
+</body>
+</html>
